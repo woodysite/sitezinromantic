@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>site jeferson</title>
+  <style>
+    body {
+      background-color: pink;
+      text-align: center;
+    }
+    .heart {
+      font-size: 50px;
+      color: red;
+      position: absolute;
+      animation: float 5s infinite ease-in-out;
+    }
+    .options {
+      display: inline-block;
+      margin-top: 50px;
+    }
+    .option {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .alliance {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+    .cry-face {
+      font-size: 50px;
+      margin-top: 20px;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Quer Namorar Comigo?</h1>
+  <div class="options">
+    <div class="option" onclick="displayMessage('sim')">Sim</div>
+    <div class="option no-option" onclick="displayMessage('nao')">Não</div>
+  </div>
+  <div id="message"></div>
+  <img class="alliance" id="alliance" src="https://cdn-icons-png.flaticon.com/512/531/531864.png" alt="Aliança">
+  <div class="cry-face" id="cryFace"></div>
+
+  <!-- Corações -->
+  <i class="heart" style="top: 10%; left: 20%;">&#10084;</i>
+  <i class="heart" style="top: 30%; left: 70%;">&#10084;</i>
+  <i class="heart" style="top: 50%; left: 40%;">&#10084;</i>
+  <i class="heart" style="top: 70%; left: 90%;">&#10084;</i>
+  <i class="heart" style="top: 90%; left: 10%;">&#10084;</i>
+
+  <script>
+    function displayMessage(choice) {
+      if (choice === 'sim') {
+        document.getElementById('message').innerHTML = '<p>Te amo, meu amor!</p>';
+        document.getElementById('alliance').style.display = 'inline';
+        document.getElementById('cryFace').innerHTML = '';
+      } else if (choice === 'nao') {
+        document.getElementById('message').innerHTML = '<p>Você não fez isso.</p>';
+        document.getElementById('cryFace').innerHTML = '&#128546;'; // Carinha de choro
+        document.getElementById('alliance').style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
